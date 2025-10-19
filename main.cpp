@@ -12,7 +12,7 @@ int main() {
     double totalSales = 0.0;
     bool seats[ROWS][COLS] = {false};
     
-    // Try to load previous state; ignore failure (first run)
+    
     loadState("seating_state.txt", seats, price_arr, totalSales);
 
     int option = -1;

@@ -8,7 +8,7 @@ void showStatistics(bool seats[ROWS][COLS], double price_arr[ROWS], double total
     int totalSold = 0;
     int totalAvailable = 0;
 
-    cout << "\n=== THONG KE ===\n";
+    cout << "\n=== Summary ===\n";
     for (int r = 0; r < ROWS; ++r) {
         int sold = 0;
         for (int c = 0; c < COLS; ++c) {
@@ -17,7 +17,7 @@ void showStatistics(bool seats[ROWS][COLS], double price_arr[ROWS], double total
         int avail = COLS - sold;
         totalSold += sold;
         totalAvailable += avail;
-        cout << "Hang " << (r + 1) << ": Con " << avail << "/" << COLS << " (Da ban " << sold << ")\n";
+        cout << "Row " << (r + 1) << ": available " << avail << "/" << COLS << " (Sold " << sold << ")\n";
     }
 
     cout <<fixed<<setprecision(2)<<endl;
