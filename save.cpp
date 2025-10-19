@@ -12,7 +12,7 @@ using namespace std ;
 bool saveState(const char *filename, bool seats[ROWS][COLS], double price_arr[ROWS], double totalSales) {
     ofstream out(filename, ios::out | ios::trunc); // reset file
     if (!out) {
-        cout << "Khong mo duoc file de ghi.\n";
+        cout << "Can not open the file to write.\n";
         return false;
     }
 
@@ -40,7 +40,7 @@ bool saveState(const char *filename, bool seats[ROWS][COLS], double price_arr[RO
  bool loadState(const char *filename, bool seats[ROWS][COLS], double price_arr[ROWS], double &totalSales) {
     ifstream in(filename,ios::out | ios::trunc);
     if (!in) {
-        cout << "Khong mo duoc file de doc.\n";
+        cout << "Can not open the file to read.\n";
         return false;
     }
 
