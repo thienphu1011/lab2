@@ -44,6 +44,10 @@ int main() {
 
         } else if (option == 3) {
             int row, col;
+            int single ;
+            cout << "Enter 1 for single ticket purchase, 0 for multiple: ";
+            cin >> single;
+            if (single==1){
             cout << "Enter the row (1-" << ROWS << "): "; cin >> row;
             cout << "Enter the seat (1-" << COLS << "): "; cin >> col;
             if (sellTicket(seats, price_arr, row, col, totalSales)) {
@@ -52,6 +56,23 @@ int main() {
             } else {
                 cout << "Ticket purchase failed.\n";
             }
+        }
+            else if(single==0){
+                int n;
+                cout << "Enter number of tickets to purchase: ";
+                cin >> n;
+                for (int i=0; i<n; i++){
+                    cout << "Ticket " << (i+1) << ":\n";
+                    cout << "Enter the row (1-" << ROWS << "): "; cin >> row;
+                    cout << "Enter the seat (1-" << COLS << "): "; cin >> col;
+                    if (sellTicket(seats, price_arr, row, col, totalSales)) {
+                        cout << "Ticket purchased successfully.\n";
+                        saveState("seating_state.txt", seats, price_arr, totalSales);
+                    } else {
+                        cout << "Ticket purchase failed.\n";
+                    }
+                }
+        }
 
         } else if (option == 4) {
             showStatistics(seats, price_arr, totalSales);
