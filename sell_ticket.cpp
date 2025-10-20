@@ -13,12 +13,7 @@ bool sellTicket(bool seats[ROWS][COLS],double price_arr[ROWS], int row, int col,
         return false;
     }
         
-        
-    // Kiem tra da co gia chua
-    /*if (price_arr[row - 1] <= 0) {
-        cout << "Chua co gia cho hang " << row << ". Vui long nhap gia truoc.\n";
-        return false;
-    }*/
+           
 
     int r = row - 1;
     int c = col - 1;
