@@ -22,7 +22,7 @@ void showStatistics(bool seats[ROWS][COLS], double price_arr[ROWS], double total
 
     cout <<fixed<<setprecision(2)<<endl;
     cout << "Total seats: " << (ROWS * COLS) << "\n";
-    cout << "Total sold: " << totalSold << "\n";
+    cout << "Total sold: $" << totalSold << "\n";
     cout << "Total available: " << totalAvailable << "\n";
-    cout << "Total sales: " << totalSales << "\n";
+    cout << "Total sales: $" << totalSales << "\n";
 }

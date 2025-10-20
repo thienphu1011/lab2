@@ -23,6 +23,6 @@ bool sellTicket(bool seats[ROWS][COLS],double price_arr[ROWS], int row, int col,
     }
     seats[r][c] = true;
     totalSales += price_arr[r];
-    cout << "Sold (Row " << row << ", Seat " << col << ") - Price: " << price_arr[r] << "\n";
+    cout << "Sold (Row " << row << ", Seat " << col << ") - Price: $" << price_arr[r] << "\n";
     return true;
 }

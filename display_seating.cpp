@@ -9,7 +9,7 @@ using namespace std;
 
 void displaySeating(bool seats[ROWS][COLS])
 {
-    cout << setw(27) << "Seats\n";
+    cout << setw(26) << "Seats\n";
     cout << setw(8) << " ";
     for(int c = 1; c <= COLS; c++)
     {
