@@ -13,22 +13,13 @@ int readFileToArray(const string &filename, int price_arr[ROWS], int maxSize) {
     }
 
     int count = 0;
-    while (file >> price_arr[count] && count < maxSize) {
-        count++;
-    }
 
+    for (int i = 1; i <= 15; ++i) {
+        if (file >> price_arr[i]) {
+            // Successfully read a number
+            count++;
+    }
     file.close();
-    return count; // return how many numbers were read
+    return count;
 }
 
-int main() {
-    const int ROWS = 15;
-    int price_arr[ROWS];
-    int size = readFileToArray("inputFile.txt", price_arr, 100);
-
-    
-    for (int i = 0; i < size; ++i) {
-        cout << price_arr[i] << " ";
-    }
-    cout << endl;
-}
