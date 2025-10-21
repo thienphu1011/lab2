@@ -11,8 +11,8 @@ int updatePrice(double price_arr[ROWS]) {
     cout <<" Do you want to update the price for each row(y/n) ?";
     cin >> update;
      if(update == 'y' || update =='Y'){
-        for (int i = 0; i < ROWS; i++){
-            cout << "Price for row " << i + 1 << ": $";
+        for (int i = 1; i <= ROWS; i++){
+            cout << "Price for row " << i << ": $";
             cin >> price_arr[i];
             while (price_arr[i] <= 0){
                 cout << "Invalid price! Please enter again: $" ;

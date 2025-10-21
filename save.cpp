@@ -17,8 +17,8 @@ bool saveState(const char *filename, char seats[ROWS][COLS], double price_arr[RO
     }
 
     // Luu so do ghe: 15 dong, moi dong 30 ky tu
-    for (int r = 0; r < ROWS; ++r) {
-        for (int c = 0; c < COLS; ++c) {
+    for (int r = 1; r <= ROWS; ++r) {
+        for (int c = 1; c <= COLS; ++c) {
             out << seats[r][c];
         }
         out << '\n';

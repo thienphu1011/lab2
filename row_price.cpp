@@ -17,8 +17,8 @@ bool readPositiveNumber(double &x){
 
 bool inputRowPrice(double price_arr[ROWS]){
     cout <<"Enter the prices for "<< ROWS <<" rows: "<< endl;
-    for (int i=0; i<ROWS; i++){
-        cout <<"Price for row "<< (i+1) <<": $";
+    for (int i=1; i<=ROWS; i++){
+        cout <<"Price for row "<< (i) <<": $";
         if (!readPositiveNumber(price_arr[i])){
             return false;
         }

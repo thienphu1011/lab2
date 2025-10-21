@@ -14,7 +14,7 @@ int readFileToArray(const string &filename, double price_arr[ROWS], int maxSize)
 
     int count = 0;
 
-    for (int i = 0; i < 15; ++i) {
+    for (int i = 1; i <= 15; ++i) {
         if (file >> price_arr[i]) {
             // Successfully read a number
             count++;

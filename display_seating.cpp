@@ -16,10 +16,10 @@ void displaySeating(char seats[ROWS][COLS])
         cout << (c % 10);
     }
     cout << endl;
-    for (int r = 0; r < ROWS; r++)
+    for (int r = 1; r <= ROWS; r++)
     {
-        cout << "Row" << setw(3) << (r + 1) << "  ";
-        for(int c = 0; c < COLS; c++)
+        cout << "Row" << setw(3) << r << "  ";
+        for(int c = 1; c <= COLS; c++)
         {
             cout << seats[r][c];
         }

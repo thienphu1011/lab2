@@ -12,8 +12,8 @@ int main() {
     double totalSales = 0.0;
     double totalTicketPrices = 0.0;
     char seats[ROWS][COLS];
-    for (int i = 0; i < ROWS; i++)
-    for (int j = 0; j < COLS; j++)
+    for (int i = 1; i <= ROWS; i++)
+    for (int j = 1; j <= COLS; j++)
         seats[i][j] = '#';    
 
     int option = -1;
@@ -68,6 +68,7 @@ int main() {
             }
             else {
                 cout << "Invalid option for row prices input.\n";
+                continue;
             }
             displaySeating(seats);
         }
