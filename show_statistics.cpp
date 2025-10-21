@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void showStatistics(bool seats[ROWS][COLS], double price_arr[ROWS], double totalSales) {
+void showStatistics(char seats[ROWS][COLS], double price_arr[ROWS], double totalSales) {
     int totalSold = 0;
     int totalAvailable = 0;
 
@@ -12,7 +12,7 @@ void showStatistics(bool seats[ROWS][COLS], double price_arr[ROWS], double total
     for (int r = 0; r < ROWS; ++r) {
         int sold = 0;
         for (int c = 0; c < COLS; ++c) {
-            if (seats[r][c]) ++sold;
+            if (seats[r][c] == '*') ++sold;
         }
         int avail = COLS - sold;
         totalSold += sold;
@@ -22,7 +22,7 @@ void showStatistics(bool seats[ROWS][COLS], double price_arr[ROWS], double total
 
     cout <<fixed<<setprecision(2)<<endl;
     cout << "Total seats: " << (ROWS * COLS) << "\n";
-    cout << "Total sold: $" << totalSold << "\n";
-    cout << "Total available: " << totalAvailable << "\n";
+    cout << "Total seat sold: " << totalSold << "\n";
+    cout << "Total seat available: " << totalAvailable << "\n";
     cout << "Total sales: $" << totalSales << "\n";
 }

@@ -11,11 +11,11 @@ const int COLS = 30;
 
 bool readPositiveNumber(double &x);
 bool inputRowPrice(double price[ROWS]);
-void displaySeating(bool seats[ROWS][COLS]);
-void showStatistics(bool seats[ROWS][COLS], double price_arr[ROWS], double totalSales);
-bool saveState(const char *filename, bool seats[ROWS][COLS], double price_arr[ROWS], double totalSales);
-bool loadState(const char *filename, bool seats[ROWS][COLS], double price_arr[ROWS], double &totalSales) ;
-bool sellTicket(bool seats[ROWS][COLS],double price_arr[ROWS], int row, int col,double &totalSales);
+void displaySeating(char seats[ROWS][COLS]);
+void showStatistics(char seats[ROWS][COLS], double price_arr[ROWS], double totalSales);
+bool saveState(const char *filename, char seats[ROWS][COLS], double price_arr[ROWS], double totalSales);
+// bool loadState(const char *filename, char seats[ROWS][COLS], double price_arr[ROWS], double &totalSales);
+bool sellTicket(char seats[ROWS][COLS],double price_arr[ROWS], int row, int col, double &totalSales, double &totalTicketPrices);
 
 
 

@@ -7,7 +7,7 @@ using namespace std;
 
 
 
-void displaySeating(bool seats[ROWS][COLS])
+void displaySeating(char seats[ROWS][COLS])
 {
     cout << setw(26) << "Seats\n";
     cout << setw(8) << " ";
@@ -21,8 +21,7 @@ void displaySeating(bool seats[ROWS][COLS])
         cout << "Row" << setw(3) << (r + 1) << "  ";
         for(int c = 0; c < COLS; c++)
         {
-            char ch = seats[r][c]? '#' : '*';
-            cout << ch;
+            cout << seats[r][c];
         }
         cout << endl;
     }

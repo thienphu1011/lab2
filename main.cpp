@@ -10,10 +10,13 @@ using namespace std;
 int main() {
     double price_arr[ROWS] = {0.0};
     double totalSales = 0.0;
-    bool seats[ROWS][COLS] = {false};
+    double totalTicketPrices = 0.0;
+    char seats[ROWS][COLS];
+    for (int i = 0; i < ROWS; i++)
+    for (int j = 0; j < COLS; j++)
+        seats[i][j] = '#';    
     
-    
-    loadState("seating_state.txt", seats, price_arr, totalSales);
+    // loadState("seating_chart.txt", seats, price_arr, totalSales);
 
     int option = -1;
     while (option != 0) {
@@ -23,12 +26,20 @@ int main() {
         cout << "3. Purchase Ticket\n";
         cout << "4. Display Total Sales\n";
         cout << "0. Exit\n";
-        cout << "Please select an option (0--4): ";
 
-        if (!(cin >> option)) {
-            cout << "Invalid input. Please enter a number between 0 and 4.\n";
-            
-            continue;
+        while (true) {
+            cout << "Please select an option (0-4): ";
+            if (!(cin >> option)) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Invalid input. Please enter a number between 0 and 4.\n";
+                continue;
+            }
+            if (option < 0 || option > 4) {
+                cout << "Please enter a number between 0 and 4.\n";
+                continue;
+            }
+            break;
         }
 
         if (option == 1) {
@@ -37,27 +48,30 @@ int main() {
             } else {
                 cout << "Row prices updated.\n";
             }
-            saveState("seating_state.txt", seats, price_arr, totalSales);
+            saveState("seating_chart.txt", seats, price_arr, totalSales);
 
         } else if (option == 2) {
             displaySeating(seats);
 
         } else if (option == 3) {
             int row, col;
-            int single ;
+            int purchase_type;
             cout << "Enter 1 for single ticket purchase, 0 for multiple: ";
-            cin >> single;
-            if (single==1){
-            cout << "Enter the row (1-" << ROWS << "): "; cin >> row;
-            cout << "Enter the seat (1-" << COLS << "): "; cin >> col;
-            if (sellTicket(seats, price_arr, row, col, totalSales)) {
+            cin >> purchase_type;
+            if (purchase_type==1){
+                cout << "Enter the row (1-" << ROWS << "): "; cin >> row;
+                cout << "Enter the seat (1-" << COLS << "): "; cin >> col;
+                if (sellTicket(seats, price_arr, row, col, totalSales, totalTicketPrices)) {
+                    saveState("seating_chart.txt", seats, price_arr, totalSales);
+                } 
+                else {
+                    cout << "Ticket purchase failed.\n";
+                }
                 cout << "Ticket purchased successfully.\n";
-                saveState("seating_state.txt", seats, price_arr, totalSales);
-            } else {
-                cout << "Ticket purchase failed.\n";
+                cout << "Total price: $" << fixed << setprecision(2) << totalTicketPrices << "\n";
+                totalTicketPrices = 0.0;
             }
-        }
-            else if(single==0){
+            else if(purchase_type==0){
                 int n;
                 cout << "Enter number of tickets to purchase: ";
                 cin >> n;
@@ -65,22 +79,22 @@ int main() {
                     cout << "Ticket " << (i+1) << ":\n";
                     cout << "Enter the row (1-" << ROWS << "): "; cin >> row;
                     cout << "Enter the seat (1-" << COLS << "): "; cin >> col;
-                    if (sellTicket(seats, price_arr, row, col, totalSales)) {
-                        cout << "Ticket purchased successfully.\n";
-                        saveState("seating_state.txt", seats, price_arr, totalSales);
+                    if (sellTicket(seats, price_arr, row, col, totalSales, totalTicketPrices)) {
+                        saveState("seating_chart.txt", seats, price_arr, totalSales);
                     } else {
                         cout << "Ticket purchase failed.\n";
                     }
                 }
-        }
+                cout << "Ticket purchased successfully.\n";
+                cout << "Total price for " << n << " tickets: $" << fixed << setprecision(2) << totalTicketPrices << "\n";
+                totalTicketPrices = 0.0;
+            }
 
         } else if (option == 4) {
             showStatistics(seats, price_arr, totalSales);
 
         } else if (option == 0) {
             cout << "Good bye!\n";
-        } else {
-            cout << "Unknown option. Please choose 0-4.\n";
         }
     }
 
