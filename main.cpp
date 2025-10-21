@@ -20,9 +20,8 @@ int main() {
     while (option != 0) {
         cout << "\nMenu Options:\n";
         cout << "1. Input Row Prices\n";
-        cout << "2. Display Seating Chart\n";
-        cout << "3. Purchase Ticket\n";
-        cout << "4. Display Total Sales\n";
+        cout << "2. Purchase Ticket\n";
+        cout << "3. Display Total Sales\n";
         cout << "0. Exit\n";
 
         while (true) {
@@ -70,13 +69,10 @@ int main() {
             else {
                 cout << "Invalid option for row prices input.\n";
             }
-
-        }
-        else if (option == 2) {
             displaySeating(seats);
+        }
 
-        } 
-        else if (option == 3) {
+        else if (option == 2) {
             int row, col;
             int purchase_type;
             cout << "Enter 1 for single ticket purchase, 0 for multiple: ";
@@ -110,10 +106,10 @@ int main() {
                 }
                 cout << "Ticket purchased successfully.\n";
                 cout << "Total price for " << n << " tickets: $" << fixed << setprecision(2) << totalTicketPrices << "\n";
-                totalTicketPrices = 0.0;
+                totalTicketPrices = 0.0;  
             }
-
-        } else if (option == 4) {
+            displaySeating(seats);
+        } else if (option == 3) {
             showStatistics(seats, price_arr, totalSales);
 
         } else if (option == 0) {
