@@ -15,9 +15,7 @@ void displaySeating(char seats[ROWS][COLS]);
 void showStatistics(char seats[ROWS][COLS], double price_arr[ROWS], double totalSales);
 bool saveState(const char *filename, char seats[ROWS][COLS], double price_arr[ROWS], double totalSales);
 // bool loadState(const char *filename, char seats[ROWS][COLS], double price_arr[ROWS], double &totalSales);
-bool sellTicket(char seats[ROWS][COLS],double price_arr[ROWS], int row, int col, double &totalSales, double &totalTicketPrices);
-
-
+void sellTicket(char seats[ROWS][COLS], double price_arr[ROWS], double &totalSales);
 
 
 

@@ -24,5 +24,5 @@ void showStatistics(char seats[ROWS][COLS], double price_arr[ROWS], double total
     cout << "Total seats: " << (ROWS * COLS) << "\n";
     cout << "Total seat sold: " << totalSold << "\n";
     cout << "Total seat available: " << totalAvailable << "\n";
-    cout << "Total sales: $" << totalSales << "\n";
+   
 }
