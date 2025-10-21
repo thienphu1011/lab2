@@ -20,9 +20,8 @@ int main() {
     while (option != 0) {
         cout << "\nMenu Options:\n";
         cout << "1. Input Row Prices\n";
-        cout << "2. Display Seating Chart\n";
-        cout << "3. Purchase Ticket\n";
-        cout << "4. Display Total Sales\n";
+        cout << "2. Purchase Ticket\n";
+        cout << "3. Display Total Sales\n";
         cout << "0. Exit\n";
 
         while (true) {
