@@ -41,7 +41,7 @@ int main() {
         }
 
         if (option == 1) {
-            cout << "Press 1 to manually input row prices, 2 to load from file, or 3 to update row prices: ";
+            cout << "Press 2 to load from file, or 3 to update row prices: ";
             int price_option;
             cin >> price_option;
             if (price_option == 1) {
