@@ -48,11 +48,11 @@ void sellTicket(char seats[ROWS][COLS], double price_arr[ROWS], double &totalSal
         
         totalSales += price_arr[row - 1];
 
-        cout << "Seat Row " << row << ", Seat " << col << " sold for $" << fixed << setprecision(2)<< price_arr[row - 1] << endl;
+        cout << "Seat Row " << row << ", Seat " << col << " sold for $" << price_arr[row - 1] << endl;
         displaySeating(seats);
     }
 
     // sum prices for this sales
-    cout << "\nTotal sales: $" << fixed << setprecision(2)<< totalSales << endl;
+    cout << "\nTotal sales: $" << totalSales << endl;
 }
 
