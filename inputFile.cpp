@@ -20,7 +20,7 @@ int readFileToArray(const string &filename, int price_arr[ROWS], int maxSize) {
     file.close();
     return count; // return how many numbers were read
 }
-/*
+
 int main() {
     const int ROWS = 15;
     int price_arr[ROWS];
@@ -32,4 +32,3 @@ int main() {
     }
     cout << endl;
 }
-*/
