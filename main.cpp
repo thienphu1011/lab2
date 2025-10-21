@@ -15,8 +15,6 @@ int main() {
     for (int i = 0; i < ROWS; i++)
     for (int j = 0; j < COLS; j++)
         seats[i][j] = '#';    
-    
-    // loadState("seating_chart.txt", seats, price_arr, totalSales);
 
     int option = -1;
     while (option != 0) {
@@ -43,18 +41,10 @@ int main() {
         }
 
         if (option == 1) {
-            cout << "Press 1 to manually input row prices, or 2 to load from file: ";
+            cout << "Press 1 to manually input row prices, 2 to load from file, or 3 to update row prices: ";
             int price_option;
             cin >> price_option;
-            if (price_option == 2) {
-                int count = readFileToArray("inputFile.txt", price_arr, ROWS);
-                if (count < ROWS) {
-                    cout << "Warning: Only " << count << " prices were read from the file. Remaining rows set to $0.0\n";
-                } else {
-                    cout << "Row prices loaded from file successfully.\n";
-                }
-            }
-            else if (price_option == 1) {
+            if (price_option == 1) {
                 if (!inputRowPrice(price_arr)) {
                     cout << "Failed to read row prices.\n";
                 } else {
@@ -62,11 +52,31 @@ int main() {
                 }
                 saveState("seating_chart.txt", seats, price_arr, totalSales);
             }
+            else if (price_option == 2) {
+                int count = readFileToArray("inputfile.txt", price_arr, ROWS);
+                if (count == 0) {
+                    cout << "Failed to read row prices from file.\n";
+                }
+                else if (count < ROWS) {
+                    cout << "Warning: Only " << count << " prices were read from the file. Remaining rows set to $0.0\n";
+                } else {
+                    cout << "Row prices loaded from file successfully.\n";
+                }
+            }
+            else if (price_option == 3){
+                updatePrice(price_arr);
+                cout << "Row prices updated.\n";
+            }
+            else {
+                cout << "Invalid option for row prices input.\n";
+            }
 
-        } else if (option == 2) {
+        }
+        else if (option == 2) {
             displaySeating(seats);
 
-        } else if (option == 3) {
+        } 
+        else if (option == 3) {
             int row, col;
             int purchase_type;
             cout << "Enter 1 for single ticket purchase, 0 for multiple: ";

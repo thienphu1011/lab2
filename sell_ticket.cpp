@@ -13,16 +13,13 @@ bool sellTicket(char seats[ROWS][COLS],double price_arr[ROWS], int row, int col,
         return false;
     }
 
-    int r = row - 1;
-    int c = col - 1;
-
-    if (seats[r][c] == '*') {
+    if (seats[row][col] == '*') {
         cout << "This seat has already been sold.\n";
         return false;
     }
-    seats[r][c] = '*';
-    totalSales += price_arr[r];
-    totalTicketPrices += price_arr[r];
-    cout << "Sold (Row " << row << ", Seat " << col << ") - Price: $" << price_arr[r] << "\n";
+    seats[row][col] = '*';
+    totalSales += price_arr[row];
+    totalTicketPrices += price_arr[row];
+    cout << "Sold (Row " << row << ", Seat " << col << ") - Price: $" << price_arr[row] << "\n";
     return true;
 }
