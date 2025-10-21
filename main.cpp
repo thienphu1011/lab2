@@ -43,12 +43,25 @@ int main() {
         }
 
         if (option == 1) {
-            if (!inputRowPrice(price_arr)) {
-                cout << "Failed to read row prices.\n";
-            } else {
-                cout << "Row prices updated.\n";
+            cout << "Press 1 to manually input row prices, or 2 to load from file: ";
+            int price_option;
+            cin >> price_option;
+            if (price_option == 2) {
+                int count = readFileToArray("inputFile.txt", price_arr, ROWS);
+                if (count < ROWS) {
+                    cout << "Warning: Only " << count << " prices were read from the file. Remaining rows set to $0.0\n";
+                } else {
+                    cout << "Row prices loaded from file successfully.\n";
+                }
             }
-            saveState("seating_chart.txt", seats, price_arr, totalSales);
+            else if (price_option == 1) {
+                if (!inputRowPrice(price_arr)) {
+                    cout << "Failed to read row prices.\n";
+                } else {
+                    cout << "Row prices updated.\n";
+                }
+                saveState("seating_chart.txt", seats, price_arr, totalSales);
+            }
 
         } else if (option == 2) {
             displaySeating(seats);

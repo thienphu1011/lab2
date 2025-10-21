@@ -8,7 +8,7 @@ const int ROWS = 15;
 const int COLS = 30;
 
 
-
+int readFileToArray(const string &filename, int price_arr[ROWS], int maxSize)
 bool readPositiveNumber(double &x);
 bool inputRowPrice(double price[ROWS]);
 void displaySeating(char seats[ROWS][COLS]);
