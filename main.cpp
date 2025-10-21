@@ -71,49 +71,17 @@ int main() {
             }
 
         }
+        
+        
         else if (option == 2) {
-            displaySeating(seats);
-
-        } 
-        else if (option == 3) {
             int row, col;
             int purchase_type;
-            cout << "Enter 1 for single ticket purchase, 0 for multiple: ";
-            cin >> purchase_type;
-            if (purchase_type==1){
-                cout << "Enter the row (1-" << ROWS << "): "; cin >> row;
-                cout << "Enter the seat (1-" << COLS << "): "; cin >> col;
-                if (sellTicket(seats, price_arr, row, col, totalSales, totalTicketPrices)) {
-                    saveState("seating_chart.txt", seats, price_arr, totalSales);
-                } 
-                else {
-                    cout << "Ticket purchase failed.\n";
-                }
-                cout << "Ticket purchased successfully.\n";
-                cout << "Total price: $" << fixed << setprecision(2) << totalTicketPrices << "\n";
-                totalTicketPrices = 0.0;
-            }
-            else if(purchase_type==0){
-                int n;
-                cout << "Enter number of tickets to purchase: ";
-                cin >> n;
-                for (int i=0; i<n; i++){
-                    cout << "Ticket " << (i+1) << ":\n";
-                    cout << "Enter the row (1-" << ROWS << "): "; cin >> row;
-                    cout << "Enter the seat (1-" << COLS << "): "; cin >> col;
-                    if (sellTicket(seats, price_arr, row, col, totalSales, totalTicketPrices)) {
-                        saveState("seating_chart.txt", seats, price_arr, totalSales);
-                    } else {
-                        cout << "Ticket purchase failed.\n";
-                    }
-                }
-                cout << "Ticket purchased successfully.\n";
-                cout << "Total price for " << n << " tickets: $" << fixed << setprecision(2) << totalTicketPrices << "\n";
-                totalTicketPrices = 0.0;
+            sellTicket(seats, price_arr, totalSales);
+            saveState("seating_chart.txt", seats, price_arr, totalSales);
             }
 
-        } else if (option == 4) {
-            showStatistics(seats, price_arr, totalSales);
+         else if (option == 3) {
+          showStatistics(seats, price_arr, totalSales);
 
         } else if (option == 0) {
             cout << "Good bye!\n";

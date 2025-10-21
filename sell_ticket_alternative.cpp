@@ -1,8 +1,8 @@
 #include <iostream>
 #include <iomanip>
+#include "main.h"
 using namespace std;
-const int ROWS = 15;
-const int COLS = 30;
+
 
 void sellTicket(char seats[ROWS][COLS], double price_arr[ROWS], double &totalSales) {
     int tickets; // số lượng vé muốn mua
@@ -36,23 +36,23 @@ void sellTicket(char seats[ROWS][COLS], double price_arr[ROWS], double &totalSal
         }
 
         // check seat has already been sold
-        if (seats[row - 1][col - 1] == '#') {
+        if (seats[row - 1][col - 1] == '*') {
             cout << "That seat has already been sold. Choose another.\n";
+            displaySeating(seats);
             i--; // cho nhập lại vé này
             continue;
         }
 
         // note sell seat and sum money
-        seats[row - 1][col - 1] = '#';
+        seats[row - 1][col - 1] = '*';
         
         totalSales += price_arr[row - 1];
 
         cout << "Seat Row " << row << ", Seat " << col << " sold for $" << fixed << setprecision(2)<< price_arr[row - 1] << endl;
+        displaySeating(seats);
     }
 
     // sum prices for this sales
     cout << "\nTotal sales: $" << fixed << setprecision(2)<< totalSales << endl;
 }
 
-
-  
